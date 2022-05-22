@@ -32,15 +32,12 @@ public class Main {
 
         CloseableHttpResponse response = httpClient.execute(request);
 
-        String body = new String(response.getEntity().getContent().readAllBytes(), StandardCharsets.UTF_8);
-        System.out.println(body);
-
-        /*List<CatInfo> posts = mapper.readValue(
+        List<CatInfo> posts = mapper.readValue(
                 response.getEntity().getContent(), new TypeReference<List<CatInfo>>() {
                 });
 
         posts.stream()
                 .filter(value -> value.getUpvotes() != 0 && value.getUpvotes() > 0)
-                .forEach(System.out::println);*/
+                .forEach(System.out::println);
     }
 }
